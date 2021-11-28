@@ -1,0 +1,19 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main() {
+	char nome[100],email[100];
+	int telefone;
+	printf("\tDigite o nome:\n");
+	gets(nome);
+	printf("\tDigite o email:\n");
+	gets(email);
+	printf("\tDigite o telefone: \n");
+	scanf("%d",&telefone);
+	system("PAUSE");
+	
+	
+	return 0;
+}
