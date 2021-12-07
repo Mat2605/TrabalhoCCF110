@@ -2,7 +2,6 @@
 #include <stdlib.h>
 int main(){
 	int resposta,telefone,data;
-	int q = 0;
 	char nome[50],email[50],local[50];
 	printf("\t[1] -> Adicionar contato;\n");
 	printf("\t[2] -> Remover contato;\n");
@@ -15,11 +14,11 @@ int main(){
 	switch(resposta){
 		case 1:
 			printf("\tDigite o email:\n ");
-			scanf("%s",&email);
+			gets(email);
 			printf("\tDigite o telefone:\n ");
 			scanf("%d",&telefone);
 			printf("\tDigite o nome:\n ");
-			fgets(nome,50,stdin);
+			gets(nome);
 			break;
 		case 2:
 			printf("\tDigite o nome do contato: \n");
