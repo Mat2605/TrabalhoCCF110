@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(){
-	int resposta,data;
+	int resposta,data,telefone_de_busca;
 	char nome[50],email[50],local[50];
 	int x = 0;//controla o loop
 	int z = 0;
@@ -28,13 +28,27 @@ int main(){
 			i++;
 			break;
 		case 2:
-			printf("\tDigite o nome do contato: \n");
+			printf("\tDigite o telefone do contato: \n");
+			scanf("%d",&telefone_de_busca);
+			for(int j = 0;j<i;j++){
+				if(telefone_de_busca==telefone[j]){
+				break;}}
 			break;
 		case 3:
-			printf("\tDigite o nome do contato: \n");
+			printf("\tDigite o telefone do contato: \n");
+			scanf("%d",&telefone_de_busca);
+			for(int j = 0;j<i;j++){
+				if(telefone_de_busca==telefone[j]){
+					printf("\tO contato existe!\n");
+				}
+				
+			}
 			break;
 		case 4:
 			printf("\tLista de contatos: \n");
+			for(int a = 0;a<i;a++){
+				printf("\t|Nome: %s|Email: %s|Telefone: %d|\n",nome,email,telefone[a]);
+			}
 			break;
 		case 5:
 			printf("\tDigite a data do evento: \n");
