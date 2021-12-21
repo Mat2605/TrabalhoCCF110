@@ -4,7 +4,7 @@
 int main(){
 	setlocale(LC_ALL,"Portuguese");
 	int resposta,telefone_de_busca;
-	char nome[30],email[30],local[50],local_busca[50],data[11];
+	char nome[30],local[50],data[11];
 	int x = 0;//controla o loop
 	int i = 0;
 	int telefone[50];
@@ -19,12 +19,10 @@ int main(){
 	scanf("%d",&resposta);
 	switch(resposta){
 		case 1:
-    		printf("Nome: ");
-    		gets(nome);
-    		printf("Email: ");
-    		gets(email);
     		printf("Telefone: ");
     		scanf("%d", &telefone[i]);
+    		printf("Nome: ");
+    		scanf("%s",&nome);
 			i++;
 			break;
 		case 2:
@@ -41,7 +39,9 @@ int main(){
 				if(telefone_de_busca==telefone[j]){
 					printf("\tO contato existe!\n");
 					printf("\tContato: \n");
-					printf("\t|Telefone: %d|Nome: %s|Email: %s|\n",telefone[i],nome,email);
+					printf("\t|Telefone: %d|Nome: %s|\n",telefone[i],nome);
+				}else{
+					printf("\tO contato não existe!\n");
 				}
 				
 			}
@@ -49,7 +49,7 @@ int main(){
 		case 4:
 			printf("\tLista de contatos: \n");
 			for(int a = 0;a<i;a++){
-				printf("\t|Nome: %s|Email: %s|Telefone: %d|\n",nome,email,telefone[a]);
+				printf("\t|Nome: %s|Telefone: %d|\n",nome,telefone[a]);
 			}
 			break;
 		case 5:
@@ -60,7 +60,6 @@ int main(){
 			break;
 		case 6:
 			printf("Digite o local do evento:\n ");
-			gets(local_busca);
 			break;
 		case 7:
 			x+=1;
