@@ -8,7 +8,6 @@ int main(){
 	int x = 0;//controla o loop
 	int i = 0;
 	int telefone[50];
-	int tel;
 	do{
 	printf("\t[1] -> Adicionar contato;\n");
 	printf("\t[2] -> Remover contato;\n");
