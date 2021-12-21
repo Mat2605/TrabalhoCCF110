@@ -7,6 +7,7 @@ int main(){
 	char nome[30],local[50],data[11];
 	int x = 0;//controla o loop
 	int i = 0;
+	int y,z = 1;
 	int telefone[50];
 	do{
 	printf("\t[1] -> Adicionar contato;\n");
@@ -37,14 +38,19 @@ int main(){
 			scanf("%d",&telefone_de_busca);
 			for(int j = 0;j<i;j++){
 				if(telefone_de_busca==telefone[j]){
-					printf("\tO contato existe!\n");
-					printf("\tContato: \n");
-					printf("\t|Telefone: %d|Nome: %s|\n",telefone[i],nome);
+					y = j;
+					z = 0;
 				}else{
-					printf("\tO contato não existe!\n");
+					continue;
 				}
 				
 			}
+			if(z==0){
+				printf("\tContato existe!\n");
+				printf("\tContato: \n");
+				printf("\t|Telefone: %d|Nome: %s|\n",telefone[y],nome);
+			}else if(z==1){
+			printf("\tContato não existe!\n");}
 			break;
 		case 4:
 			printf("\tLista de contatos: \n");
