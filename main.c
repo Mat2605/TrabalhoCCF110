@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 int main(){
-	int resposta,data,telefone_de_busca;
-	char nome[50],email[50],local[50];
+	setlocale(LC_ALL,"Portuguese");
+	int resposta,telefone_de_busca;
+	char nome[30],email[30],local[50],local_busca[50],data[11];
 	int x = 0;//controla o loop
-	int z = 0;
 	int i = 0;
 	int telefone[50];
-	int dia[50], mes[50],ano[50];
+	int tel;
 	do{
 	printf("\t[1] -> Adicionar contato;\n");
 	printf("\t[2] -> Remover contato;\n");
@@ -19,12 +20,12 @@ int main(){
 	scanf("%d",&resposta);
 	switch(resposta){
 		case 1:
-			printf("\tDigite o nome:\n ");
-			gets(nome);
-			printf("\tDigite o telefone:\n ");
-			scanf("%d",&telefone[i]);
-			printf("\tDigite o email:\n ");
-			gets(email);
+    		printf("Nome: ");
+    		gets(nome);
+    		printf("Email: ");
+    		gets(email);
+    		printf("Telefone: ");
+    		scanf("%d", &telefone[i]);
 			i++;
 			break;
 		case 2:
@@ -40,6 +41,8 @@ int main(){
 			for(int j = 0;j<i;j++){
 				if(telefone_de_busca==telefone[j]){
 					printf("\tO contato existe!\n");
+					printf("\tContato: \n");
+					printf("\t|Telefone: %d|Nome: %s|Email: %s|\n",telefone[i],nome,email);
 				}
 				
 			}
@@ -52,13 +55,13 @@ int main(){
 			break;
 		case 5:
 			printf("\tDigite a data do evento: \n");
-			scanf("%d %d %d",&dia[z],&mes[z],&ano[z]);
+			scanf("%s",&data);
 			printf("\tDigite o local do compromisso:\n ");
 			gets(local);
-			z++;
 			break;
 		case 6:
-			printf("Digite a data do evento:\n ");
+			printf("Digite o local do evento:\n ");
+			gets(local_busca);
 			break;
 		case 7:
 			x+=1;
