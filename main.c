@@ -4,9 +4,10 @@
 int main(){
 	setlocale(LC_ALL,"Portuguese");
 	int resposta,telefone_de_busca;
-	char nome[30],local[50],data[11];
+	char nome[50][30],local[50][50],data[50][11];
 	int x = 0;//controla o loop
 	int i = 0;
+	int j = 0;
 	int y,z = 1;
 	int telefone[50];
 	do{
@@ -20,10 +21,10 @@ int main(){
 	scanf("%d",&resposta);
 	switch(resposta){
 		case 1:
-    		printf("Telefone: ");
+    		printf("\tTelefone: \n");
     		scanf("%d", &telefone[i]);
-    		printf("Nome: ");
-    		scanf("%s",&nome);
+    		printf("\tNome: \n");
+    		scanf("%s",&nome[i]);
 			i++;
 			break;
 		case 2:
@@ -55,14 +56,15 @@ int main(){
 		case 4:
 			printf("\tLista de contatos: \n");
 			for(int a = 0;a<i;a++){
-				printf("\t|Nome: %s|Telefone: %d|\n",nome,telefone[a]);
+				printf("\t|Nome: %s|Telefone: %d|\n",nome[a],telefone[a]);
 			}
 			break;
 		case 5:
 			printf("\tDigite a data do evento: \n");
-			scanf("%s",&data);
+			scanf("%s",&data[j]);
 			printf("\tDigite o local do compromisso:\n ");
-			gets(local);
+			gets(local[j]);
+			j++;
 			break;
 		case 6:
 			printf("Digite o local do evento:\n ");
