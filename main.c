@@ -51,7 +51,7 @@ int main(){
 			if(z==0){
 				printf("\tContato existe!\n");
 				printf("\tContato: \n");
-				printf("\t|Telefone: %d|Nome: %s|\n",telefone[y],nome);
+				printf("\t|Telefone: %d|Nome: %s|Email: %s\n",telefone[y],nome[y],email[y]);
 			}else if(z==1){
 			printf("\tContato não existe!\n");}
 			break;
