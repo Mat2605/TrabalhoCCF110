@@ -4,7 +4,7 @@
 int main(){
 	setlocale(LC_ALL,"Portuguese");
 	int resposta,telefone_de_busca;
-	char nome[50][30],local[50][50],data[50][11];
+	char nome[50][30],local[50][50],data[50][11],email[50][30];
 	int x = 0;//controla o loop
 	int i = 0;
 	int j = 0;
@@ -25,6 +25,8 @@ int main(){
     		scanf("%d", &telefone[i]);
     		printf("\tNome: \n");
     		scanf("%s",&nome[i]);
+    		printf("\tEmail: \n");
+    		scanf("%s",&email[i]);
 			i++;
 			break;
 		case 2:
@@ -56,7 +58,7 @@ int main(){
 		case 4:
 			printf("\tLista de contatos: \n");
 			for(int a = 0;a<i;a++){
-				printf("\t|Nome: %s|Telefone: %d|\n",nome[a],telefone[a]);
+				printf("\t|Nome: %s|Telefone: %d|Email: %s\n",nome[a],telefone[a],email[a]);
 			}
 			break;
 		case 5:
