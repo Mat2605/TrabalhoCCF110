@@ -19,7 +19,6 @@ void inicializar_struct(local *local,agenda *agenda){
 		strcpy(local[i].data,"NULL");
 	}
 }
-//condicional1,condicional4,condicional5,condicional6,condicional7;comparar strings
 void op1(agenda *agenda){
 	char palavra[50] = "NULL";
 	for(int i = 0;i<50;i++){
