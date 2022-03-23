@@ -7,7 +7,8 @@ typedef struct dados_agenda{
 	int telefone;
 }agenda;
 typedef struct dados_local{
-	char local[50],data[50];
+	char local[50];
+	char data[50];
 	
 }local;
 void inicializar_struct(local *local,agenda *agenda){
@@ -20,9 +21,11 @@ void inicializar_struct(local *local,agenda *agenda){
 	}
 }
 void op1(agenda *agenda){
-	char palavra[50] = "NULL";
+	char palavra[50];
+	strcpy(palavra,"NULL");
 	for(int i = 0;i<50;i++){
-			if(strcmp(agenda[i].nome,palavra)){
+			int reg = strcmp(agenda[i].nome,palavra);
+			if(reg==0){
 				printf("\tTelefone: \n");
     			scanf("%d", &agenda[i].telefone);
     			printf("\tNome: \n");
@@ -66,10 +69,11 @@ void op4(agenda *agenda){
 				printf("\t|Nome: %s|Telefone: %d|Email: %s\n",agenda[i].nome,agenda[i].telefone,agenda[i].email);
 				}}}
 void op5(local *local){
-	char palavra[50]="NULL";
-	int condicional5;
+	char palavra[50];
+	strcpy(palavra,"NULL");
 	for(int i = 0;i<50;i++){
-		if(strcmp(local[i].local,palavra)){
+		int condicional5 = strcmp(local[i].local,palavra);
+		if(condicional5==0){
 			printf("\tDigite a data do evento: \n");
 			scanf("%s",&local[i].local);
 			printf("\tDigite o local do compromisso:\n ");
@@ -77,25 +81,31 @@ void op5(local *local){
 			break;}}}
 void op6(local *local){
 	char local_de_busca[50];
+	int x = 0;
 	printf("Digite o local do evento:\n ");
 	scanf("%s",&local_de_busca);
 	for(int i = 0;i<50;i++){
-			if(strcmp(local_de_busca,local[i].local)){
+		int reg =strcmp(local_de_busca,local[i].local);
+			if(reg==0){
 				strcpy(local[i].local,"NULL");
 				strcpy(local[i].data,"NULL");
 				printf("\tContato removido!");
-				break;}else{
+				x = 1;
+				break;}
+				}if(x==0){
 					printf("\tContado não encontrado!\n");
-					break;
-				}}}
+				}
+				}
 void op7(local *local){
-	char palavra[50] = "NULL";
+	char palavra[50];
+	strcpy(palavra,"NULL");
 	for(int i = 0;i<50;i++){
-		if(strcmp(local[i].local,palavra)){
-			printf("\tData: %s,Local: %s\n",local[i].data,local[i].local);
-		}else{
+		int reg = strcmp(local[i].local,palavra);
+		if(reg==0){
 			printf("\tVazio\n");
-			break;}}}
+		}else{
+			printf("\tData: %s,Local: %s\n",local[i].data,local[i].local);
+			}}}
 int main(){
 	setlocale(LC_ALL,"Portuguese");
 	agenda agenda[50];
@@ -134,13 +144,25 @@ int main(){
 			break;
 		case 7:
 			op7(local);
-
 			break;
 		case 8:
 			x+=1;
 			break;
 			
 	}}while(x==0);
+	FILE *lista_completa;
+	if((lista_completa = fopen("agenda.txt","w+"))==NULL){
+		printf("\tNão foi possível abrir um arquivo!\n");
+	}else{
+		for(int i = 0;i<50;i++){
+			fprintf(lista_completa,"|Nome: %s|",agenda[i].nome);
+			fprintf(lista_completa,"Email: %s|",agenda[i].email);
+			fprintf(lista_completa,"Telefone: %d|",agenda[i].telefone);
+			fprintf(lista_completa,"Local Registrado: %s|",local[i].local);
+			fprintf(lista_completa,"Data do evento: %s|\n\n\n\n",local[i].data);
+		}
+	}
+	fclose(lista_completa);
 	system("PAUSE");
 	return 0;
 }
